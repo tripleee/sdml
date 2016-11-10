@@ -5,7 +5,7 @@ So here's a bit of a half-assed attempt at a self-written Bayesian classifier. J
 ### Requirements
 You can use `pip` to install all the required packages for this thing:
 
-    python2 -m pip install requests websocket-client termcolor
+    python2 -m pip install -r requirements.txt
 
 You will also need a working implementation of `cPickle`. You've *probably* got one, but not *all* Py2 installs came with it.
 
