@@ -2,3 +2,7 @@ requests
 websocket-client
 termcolor
 #cPickle
+numpy
+# scipy is tricky to install, try manual "pip install --only-binary :all: scipy" if it fails
+scipy
+scikit-learn
