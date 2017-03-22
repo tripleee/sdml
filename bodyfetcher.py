@@ -1,5 +1,7 @@
 import requests
 import time
+import logging
+
 
 def fetch_post(site, post_id):
     request_key = 'X2IphbAw)by6tgOGvQkI1w(('
@@ -9,10 +11,15 @@ def fetch_post(site, post_id):
     response_json = response.json()
 
     if 'backoff' in response_json:
-        time.sleep(response['backoff'])
+        logging.info("backoff requested; sleeping {0}".format(
+            response_json['backoff']))
+        #time.sleep(response['backoff'])
+        time.sleep(response_json['backoff'])
 
     if 'items' in response_json:
-        print("{0} requests remaining".format(response_json['quota_remaining']))
+        ######## TODO: somehow signal when we are out of requests
+        logging.info("{0} requests remaining".format(
+            response_json['quota_remaining']))
         return response_json['items'][0]
     else:
         raise Exception('no items provided in API response')
